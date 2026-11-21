@@ -1,3 +1,5 @@
+<img src="docs/logo.png" alt="NgaemBook logo" width="128">
+
 # NgaemBook (แง้มบุ๊ค)
 
 A macOS menu bar app for a MacBook lid that is only a little open ("แง้ม" means "ajar" in Thai).
@@ -5,6 +7,12 @@ When the lid folds below an angle (25° by default), NgaemBook sleeps the displa
 Open the lid again and both come back. The Mac itself stays awake, so downloads, music and servers keep running.
 
 It has no window and no Dock icon: everything is in the menu bar item.
+
+## Install
+
+Download the `.dmg` from [Releases](https://github.com/narze/NgaemBook/releases), open it, and drag NgaemBook to Applications.
+The app is not notarized: the first time, right-click the app and select **Open**
+(or run `xattr -dr com.apple.quarantine /Applications/NgaemBook.app`).
 
 ## Run
 
@@ -14,6 +22,7 @@ Needs macOS 14+ and a MacBook with a lid angle sensor (2019 MacBook Pro 16" and 
 swift run NgaemBook          # from source
 scripts/bundle.sh            # build/NgaemBook.app (universal, ad-hoc signed)
 scripts/dmg.sh               # build/NgaemBook-<version>.dmg
+scripts/make-icon.sh         # redraw the logo (scripts/icon.swift) into Resources/AppIcon.icns
 swift test
 ```
 
