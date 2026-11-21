@@ -18,6 +18,7 @@ BIN="$(swift build -c release --arch arm64 --arch x86_64 --show-bin-path)/$EXECU
 rm -rf "$APP"
 mkdir -p "$APP/Contents/MacOS" "$APP/Contents/Resources/th.lproj"
 cp "$BIN" "$APP/Contents/MacOS/$EXECUTABLE"
+cp Resources/AppIcon.icns "$APP/Contents/Resources/AppIcon.icns"
 
 cat > "$APP/Contents/Info.plist" <<EOF
 <?xml version="1.0" encoding="UTF-8"?>
@@ -30,6 +31,8 @@ cat > "$APP/Contents/Info.plist" <<EOF
     <string>$NAME</string>
     <key>CFBundleExecutable</key>
     <string>$EXECUTABLE</string>
+    <key>CFBundleIconFile</key>
+    <string>AppIcon</string>
     <key>CFBundleIdentifier</key>
     <string>$BUNDLE_ID</string>
     <key>CFBundleInfoDictionaryVersion</key>
